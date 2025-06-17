@@ -1,0 +1,50 @@
+
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ArrowDown, Calendar, MapPin } from "lucide-react";
+
+export const HeroSection = () => {
+  return (
+    <section className="relative py-20 lg:py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-blue-950/20 dark:via-background dark:to-green-950/20" />
+      
+      <div className="container relative">
+        <div className="mx-auto max-w-4xl text-center">
+          <Badge variant="outline" className="mb-6 bg-background/50 backdrop-blur">
+            <span className="text-blue-600">🌍</span>
+            Powering Global Humanitarian Organizations
+          </Badge>
+          
+          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl mb-6">
+            <span className="text-primary">Smart Meeting Spaces</span>
+            <br />
+            <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
+              Human-Centered Solutions
+            </span>
+          </h1>
+          
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            Effortless room reservations and intuitive wayfinding designed for global humanitarian organizations. 
+            Seamlessly integrate with your workflow while supporting multilingual teams worldwide.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
+              <Calendar className="mr-2 h-5 w-5" />
+              Book a Demo
+            </Button>
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+              <MapPin className="mr-2 h-5 w-5" />
+              Explore Features
+            </Button>
+          </div>
+          
+          <div className="flex items-center justify-center text-sm text-muted-foreground">
+            <ArrowDown className="h-4 w-4 mr-2 animate-bounce" />
+            Trusted by global organizations worldwide
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
