@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Calendar, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   return (
@@ -28,15 +29,19 @@ export const HeroSection = () => {
             Seamlessly integrate with your workflow while supporting multilingual teams worldwide.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
-              <Calendar className="mr-2 h-5 w-5" />
-              Book a Demo
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6">
-              <MapPin className="mr-2 h-5 w-5" />
-              Explore Features
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Link to="/booking-demo">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
+                <Calendar className="mr-2 h-5 w-5" />
+                Try Booking Demo
+              </Button>
+            </Link>
+            <Link to="/wayfinding-demo">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+                <MapPin className="mr-2 h-5 w-5" />
+                Try Wayfinding Demo
+              </Button>
+            </Link>
           </div>
           
           <div className="flex items-center justify-center text-sm text-muted-foreground">
