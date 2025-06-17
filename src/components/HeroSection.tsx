@@ -13,20 +13,20 @@ export const HeroSection = () => {
         <div className="mx-auto max-w-4xl text-center">
           <Badge variant="outline" className="mb-6 bg-background/50 backdrop-blur">
             <span className="text-blue-600">🌍</span>
-            Powering Global Humanitarian Organizations
+            Powering Modern Workplaces
           </Badge>
           
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl mb-6">
             <span className="text-primary">Smart Meeting Spaces</span>
             <br />
             <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
-              Human-Centered Solutions
+              Effortless Solutions
             </span>
           </h1>
           
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Effortless room reservations and intuitive wayfinding designed for global humanitarian organizations. 
-            Seamlessly integrate with your workflow while supporting multilingual teams worldwide.
+            Effortless room reservations and intuitive wayfinding designed for modern offices. 
+            Seamlessly integrate with your workflow while supporting teams worldwide.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -46,7 +46,7 @@ export const HeroSection = () => {
           
           <div className="flex items-center justify-center text-sm text-muted-foreground">
             <ArrowDown className="h-4 w-4 mr-2 animate-bounce" />
-            Trusted by global organizations worldwide
+            Trusted by companies worldwide
           </div>
         </div>
       </div>

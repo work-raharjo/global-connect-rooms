@@ -11,7 +11,7 @@ export const CTASection = () => {
           <CardContent className="p-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Workspace?</h2>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Join global humanitarian organizations already using GlobalConnect Rooms 
+              Join companies worldwide already using GlobalConnect Rooms 
               to create more efficient, inclusive, and impactful meeting experiences.
             </p>
             

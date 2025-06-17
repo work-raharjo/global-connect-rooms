@@ -36,9 +36,9 @@ export const FeaturesSection = () => {
       <div className="container">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">Core Features</Badge>
-          <h2 className="text-3xl font-bold mb-4">Built for Global Impact</h2>
+          <h2 className="text-3xl font-bold mb-4">Built for Modern Workplaces</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Every feature is designed with humanitarian organizations in mind, 
+            Every feature is designed with modern organizations in mind, 
             prioritizing accessibility, efficiency, and seamless collaboration.
           </p>
         </div>

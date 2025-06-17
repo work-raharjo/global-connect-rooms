@@ -10,12 +10,12 @@ const stats = [
 ];
 
 const organizations = [
-  "United Nations Development Programme",
-  "World Health Organization", 
-  "UNICEF",
-  "International Red Cross",
-  "Doctors Without Borders",
-  "Oxfam International"
+  "Fortune 500 Companies",
+  "Technology Leaders", 
+  "Global Enterprises",
+  "Financial Services",
+  "Consulting Firms",
+  "Healthcare Organizations"
 ];
 
 export const GlobalImpactSection = () => {
@@ -24,9 +24,9 @@ export const GlobalImpactSection = () => {
       <div className="container">
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">Global Impact</Badge>
-          <h2 className="text-3xl font-bold mb-4">Trusted by Humanitarian Leaders</h2>
+          <h2 className="text-3xl font-bold mb-4">Trusted by Industry Leaders</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Empowering organizations that change the world, one meeting at a time.
+            Empowering organizations around the world, one meeting at a time.
           </p>
         </div>
         
@@ -43,7 +43,7 @@ export const GlobalImpactSection = () => {
         </div>
         
         <div className="text-center">
-          <h3 className="text-xl font-semibold mb-6">Organizations We Serve</h3>
+          <h3 className="text-xl font-semibold mb-6">Industries We Serve</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {organizations.map((org, index) => (
               <div key={index} className="p-4 rounded-lg bg-white/50 backdrop-blur text-sm font-medium text-center">
