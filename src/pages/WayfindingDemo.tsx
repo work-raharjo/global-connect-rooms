@@ -8,27 +8,27 @@ import { ArrowLeft, MapPin, Navigation, Search, Zap, Mic, MicOff, Hand } from "l
 import { Header } from "@/components/Header";
 import { Link } from "react-router-dom";
 
-// Updated locations to match the isometric building image layout
+// Updated locations to match the 4-floor building structure
 const locations = [
-  // Ground Floor - positioned according to the isometric building image
-  { id: 1, name: "Main Reception", floor: "Ground Floor", section: "Entrance", coordinates: { x: 62, y: 82 }, floorLevel: 0 },
-  { id: 2, name: "Security Desk", floor: "Ground Floor", section: "Lobby", coordinates: { x: 45, y: 78 }, floorLevel: 0 },
-  { id: 3, name: "Cafeteria", floor: "Ground Floor", section: "West Wing", coordinates: { x: 30, y: 75 }, floorLevel: 0 },
+  // Ground Floor
+  { id: 1, name: "Main Reception", floor: "Ground Floor", section: "Entrance", coordinates: { x: 50, y: 85 }, floorLevel: 0 },
+  { id: 2, name: "Security Desk", floor: "Ground Floor", section: "Lobby", coordinates: { x: 35, y: 80 }, floorLevel: 0 },
+  { id: 3, name: "Cafeteria", floor: "Ground Floor", section: "West Wing", coordinates: { x: 20, y: 75 }, floorLevel: 0 },
   
-  // First Floor - positioned on the first level of the building
-  { id: 4, name: "Conference Room A", floor: "1st Floor", section: "East Wing", coordinates: { x: 70, y: 60 }, floorLevel: 1 },
-  { id: 5, name: "Collaboration Hub", floor: "1st Floor", section: "Central", coordinates: { x: 55, y: 58 }, floorLevel: 1 },
-  { id: 6, name: "Meeting Room B", floor: "1st Floor", section: "West Wing", coordinates: { x: 35, y: 55 }, floorLevel: 1 },
+  // First Floor
+  { id: 4, name: "Conference Room A", floor: "1st Floor", section: "East Wing", coordinates: { x: 75, y: 65 }, floorLevel: 1 },
+  { id: 5, name: "Collaboration Hub", floor: "1st Floor", section: "Central", coordinates: { x: 50, y: 65 }, floorLevel: 1 },
+  { id: 6, name: "Meeting Room B", floor: "1st Floor", section: "West Wing", coordinates: { x: 25, y: 65 }, floorLevel: 1 },
   
-  // Second Floor - positioned on the second level
-  { id: 7, name: "Library", floor: "2nd Floor", section: "Quiet Zone", coordinates: { x: 65, y: 45 }, floorLevel: 2 },
-  { id: 8, name: "Study Rooms", floor: "2nd Floor", section: "Central", coordinates: { x: 50, y: 42 }, floorLevel: 2 },
-  { id: 9, name: "Training Room", floor: "2nd Floor", section: "West Wing", coordinates: { x: 32, y: 40 }, floorLevel: 2 },
+  // Second Floor
+  { id: 7, name: "Library", floor: "2nd Floor", section: "Quiet Zone", coordinates: { x: 70, y: 45 }, floorLevel: 2 },
+  { id: 8, name: "Study Rooms", floor: "2nd Floor", section: "Central", coordinates: { x: 50, y: 45 }, floorLevel: 2 },
+  { id: 9, name: "Training Room", floor: "2nd Floor", section: "West Wing", coordinates: { x: 30, y: 45 }, floorLevel: 2 },
   
-  // Third Floor - positioned on the top level
-  { id: 10, name: "Executive Suite", floor: "3rd Floor", section: "North Wing", coordinates: { x: 55, y: 28 }, floorLevel: 3 },
-  { id: 11, name: "Board Room", floor: "3rd Floor", section: "East Wing", coordinates: { x: 68, y: 30 }, floorLevel: 3 },
-  { id: 12, name: "IT Support", floor: "3rd Floor", section: "West Wing", coordinates: { x: 38, y: 25 }, floorLevel: 3 }
+  // Third Floor
+  { id: 10, name: "Executive Suite", floor: "3rd Floor", section: "North Wing", coordinates: { x: 50, y: 25 }, floorLevel: 3 },
+  { id: 11, name: "Board Room", floor: "3rd Floor", section: "East Wing", coordinates: { x: 75, y: 25 }, floorLevel: 3 },
+  { id: 12, name: "IT Support", floor: "3rd Floor", section: "West Wing", coordinates: { x: 25, y: 25 }, floorLevel: 3 }
 ];
 
 const WayfindingDemo = () => {
@@ -245,7 +245,7 @@ const WayfindingDemo = () => {
                   <div 
                     className="absolute inset-4 bg-center bg-contain bg-no-repeat rounded"
                     style={{
-                      backgroundImage: `url(/lovable-uploads/9dbed0bd-eaeb-444d-804b-0adbb4f486c3.png)`
+                      backgroundImage: `url(/lovable-uploads/761d1a64-0576-4934-9b6a-4817ce626973.png)`
                     }}
                   >
                     {/* Location markers for current floor */}
@@ -270,7 +270,7 @@ const WayfindingDemo = () => {
                     {isNavigating && selectedLocation && selectedLocation.floorLevel === selectedFloor && (
                       <svg className="absolute inset-0 w-full h-full pointer-events-none">
                         <path
-                          d={`M 62 82 Q 65 75 ${selectedLocation.coordinates.x} ${selectedLocation.coordinates.y}`}
+                          d={`M 50 85 Q 60 70 ${selectedLocation.coordinates.x} ${selectedLocation.coordinates.y}`}
                           stroke="#22c55e"
                           strokeWidth="3"
                           fill="none"
@@ -284,7 +284,7 @@ const WayfindingDemo = () => {
                     {selectedFloor === 0 && (
                       <div 
                         className="absolute w-5 h-5 bg-green-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 ring-4 ring-green-200 border-2 border-white"
-                        style={{ left: '62%', top: '82%' }}
+                        style={{ left: '50%', top: '85%' }}
                         title="You are here"
                       />
                     )}
