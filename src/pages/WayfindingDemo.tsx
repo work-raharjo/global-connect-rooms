@@ -9,14 +9,14 @@ import { Header } from "@/components/Header";
 import { Link } from "react-router-dom";
 
 const locations = [
-  { id: 1, name: "Conference Room A", floor: "2nd Floor", section: "East Wing", coordinates: { x: 75, y: 30 } },
-  { id: 2, name: "Meeting Room B", floor: "3rd Floor", section: "West Wing", coordinates: { x: 25, y: 20 } },
-  { id: 3, name: "Collaboration Hub", floor: "1st Floor", section: "Central", coordinates: { x: 50, y: 60 } },
-  { id: 4, name: "Executive Suite", floor: "4th Floor", section: "North Wing", coordinates: { x: 50, y: 15 } },
-  { id: 5, name: "Reception", floor: "Ground Floor", section: "Main Entrance", coordinates: { x: 50, y: 85 } },
-  { id: 6, name: "Cafeteria", floor: "1st Floor", section: "South Wing", coordinates: { x: 20, y: 70 } },
-  { id: 7, name: "Library", floor: "2nd Floor", section: "Quiet Zone", coordinates: { x: 80, y: 45 } },
-  { id: 8, name: "IT Support", floor: "Basement", section: "Technical", coordinates: { x: 30, y: 90 } }
+  { id: 1, name: "Conference Room A", floor: "2nd Floor", section: "East Wing", coordinates: { x: 80, y: 25 } },
+  { id: 2, name: "Meeting Room B", floor: "3rd Floor", section: "West Wing", coordinates: { x: 20, y: 35 } },
+  { id: 3, name: "Collaboration Hub", floor: "1st Floor", section: "Central", coordinates: { x: 55, y: 45 } },
+  { id: 4, name: "Executive Suite", floor: "4th Floor", section: "North Wing", coordinates: { x: 45, y: 20 } },
+  { id: 5, name: "Reception", floor: "Ground Floor", section: "Main Entrance", coordinates: { x: 50, y: 75 } },
+  { id: 6, name: "Cafeteria", floor: "1st Floor", section: "South Wing", coordinates: { x: 25, y: 65 } },
+  { id: 7, name: "Library", floor: "2nd Floor", section: "Quiet Zone", coordinates: { x: 75, y: 55 } },
+  { id: 8, name: "IT Support", floor: "Basement", section: "Technical", coordinates: { x: 35, y: 25 } }
 ];
 
 const WayfindingDemo = () => {
