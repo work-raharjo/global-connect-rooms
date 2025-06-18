@@ -153,7 +153,7 @@ const WayfindingDemo = () => {
                   <div 
                     className="absolute inset-4 bg-center bg-contain bg-no-repeat rounded"
                     style={{
-                      backgroundImage: `url(/lovable-uploads/9c05cbf2-121d-4a07-b06d-18a6aa322d2e.png)`
+                      backgroundImage: `url(/lovable-uploads/fadc6744-014f-4cbf-bb67-23edc9630de2.png)`
                     }}
                   >
                     {/* Location markers */}
