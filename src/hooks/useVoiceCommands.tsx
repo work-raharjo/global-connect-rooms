@@ -17,8 +17,8 @@ export const useVoiceCommands = ({ onCommand, isEnabled }: VoiceCommandsProps) =
       return;
     }
 
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    const recognitionInstance = new SpeechRecognition();
+    const SpeechRecognitionAPI = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    const recognitionInstance = new SpeechRecognitionAPI() as SpeechRecognition;
     
     recognitionInstance.continuous = true;
     recognitionInstance.interimResults = true;
@@ -32,7 +32,7 @@ export const useVoiceCommands = ({ onCommand, isEnabled }: VoiceCommandsProps) =
       setIsListening(false);
     };
 
-    recognitionInstance.onresult = (event) => {
+    recognitionInstance.onresult = (event: SpeechRecognitionEvent) => {
       let finalTranscript = '';
       
       for (let i = event.resultIndex; i < event.results.length; i++) {
