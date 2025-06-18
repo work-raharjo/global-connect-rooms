@@ -148,19 +148,19 @@ const WayfindingDemo = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="relative bg-gradient-to-br from-blue-50 to-green-50 rounded-lg p-4 h-96 border-2 border-dashed border-muted">
-                  {/* Simulated Building Layout */}
-                  <div className="absolute inset-4 bg-white rounded border shadow-sm">
-                    {/* Floor indicators */}
-                    <div className="absolute top-2 left-2 text-xs text-muted-foreground">
-                      Multi-floor Building
-                    </div>
-                    
+                <div className="relative rounded-lg p-4 h-96 bg-gray-50">
+                  {/* Building Map Background */}
+                  <div 
+                    className="absolute inset-4 bg-center bg-contain bg-no-repeat rounded"
+                    style={{
+                      backgroundImage: `url(/lovable-uploads/9c05cbf2-121d-4a07-b06d-18a6aa322d2e.png)`
+                    }}
+                  >
                     {/* Location markers */}
                     {locations.map((location) => (
                       <div
                         key={location.id}
-                        className={`absolute w-3 h-3 rounded-full transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+                        className={`absolute w-3 h-3 rounded-full transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 cursor-pointer ${
                           selectedDestination === location.id 
                             ? 'bg-red-500 ring-4 ring-red-200 animate-pulse scale-150' 
                             : 'bg-blue-500 hover:bg-blue-600 hover:scale-125'
@@ -170,6 +170,7 @@ const WayfindingDemo = () => {
                           top: `${location.coordinates.y}%`
                         }}
                         title={location.name}
+                        onClick={() => handleStartNavigation(location.id)}
                       />
                     ))}
                     
@@ -178,18 +179,18 @@ const WayfindingDemo = () => {
                       <svg className="absolute inset-0 w-full h-full pointer-events-none">
                         <path
                           d={`M 50 85 Q 60 70 ${selectedLocation.coordinates.x} ${selectedLocation.coordinates.y}`}
-                          stroke="#ef4444"
-                          strokeWidth="2"
+                          stroke="#22c55e"
+                          strokeWidth="3"
                           fill="none"
-                          strokeDasharray="5,5"
+                          strokeDasharray="8,4"
                           className="animate-pulse"
                         />
                       </svg>
                     )}
 
-                    {/* You are here marker */}
+                    {/* You are here marker (green circle like in the image) */}
                     <div 
-                      className="absolute w-4 h-4 bg-green-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 ring-4 ring-green-200"
+                      className="absolute w-5 h-5 bg-green-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 ring-4 ring-green-200 border-2 border-white"
                       style={{ left: '50%', top: '85%' }}
                       title="You are here"
                     />
@@ -200,7 +201,7 @@ const WayfindingDemo = () => {
                     <div className="text-xs font-medium mb-2">Legend</div>
                     <div className="space-y-1 text-xs">
                       <div className="flex items-center">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                        <div className="w-3 h-3 bg-green-500 rounded-full mr-2 ring-2 ring-green-200"></div>
                         <span>Your Location</span>
                       </div>
                       <div className="flex items-center">
