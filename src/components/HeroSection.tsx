@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowDown, Calendar, MapPin } from "lucide-react";
+import { ArrowDown, Calendar, MapPin, Monitor } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
@@ -34,6 +34,12 @@ export const HeroSection = () => {
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
                 <Calendar className="mr-2 h-5 w-5" />
                 Try Booking Demo
+              </Button>
+            </Link>
+            <Link to="/room-booking">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6">
+                <Monitor className="mr-2 h-5 w-5" />
+                Smart Booking System
               </Button>
             </Link>
             <Link to="/wayfinding-demo">
