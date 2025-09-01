@@ -7,7 +7,7 @@ import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { IntegrationsSection } from "@/components/IntegrationsSection";
-import { GlobalImpactSection } from "@/components/GlobalImpactSection";
+
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
@@ -18,7 +18,7 @@ const Index = () => {
       <HeroSection />
       <FeaturesSection />
       <IntegrationsSection />
-      <GlobalImpactSection />
+      
       <CTASection />
       <Footer />
     </div>
