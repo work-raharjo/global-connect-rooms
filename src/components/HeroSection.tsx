@@ -25,8 +25,8 @@ export const HeroSection = () => {
           </h1>
           
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Effortless room reservations and intuitive wayfinding designed for modern offices. 
-            Seamlessly integrate with your workflow while supporting teams worldwide.
+            Effortless room reservations and intuitive wayfinding tailored for UNDP facilities. 
+            Seamlessly integrate with your development workflow while supporting global teams and missions.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
