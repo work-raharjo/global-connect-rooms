@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,31 +13,52 @@ import { DashboardSearch } from "@/components/booking/DashboardSearch";
 import { RoomDisplayPanel } from "@/components/booking/RoomDisplayPanel";
 import { TTSProvider, useTTS } from "@/components/booking/TTSProvider";
 import { GestureControlProvider, useGestureControlContext } from "@/components/booking/GestureControlProvider";
-
-const rooms = [
-  { id: 1, name: "Innovation Hub", capacity: 15, floor: "9th Floor", available: true, position: "top-left", features: ["Projector", "Video Conference"] },
-  { id: 2, name: "Collaboration Space", capacity: 10, floor: "9th Floor", available: true, position: "top-right", features: ["Whiteboard", "TV Display"] },
-  { id: 3, name: "Focus Room", capacity: 6, floor: "9th Floor", available: false, position: "bottom-left", features: ["Video Conference"] },
-  { id: 4, name: "Executive Suite", capacity: 20, floor: "9th Floor", available: true, position: "bottom-right", features: ["Projector", "Video Conference", "Whiteboard"] }
-];
-
-const upcomingBookings = [
-  {
-    id: 1,
-    time: "10:00 - 11:30",
-    title: "Product Strategy Meeting",
-    room: "Innovation Hub",
-    date: "Today"
-  },
-  {
-    id: 2,
-    time: "14:00 - 15:00",
-    title: "Team Standup",
-    room: "Collaboration Space",
-    date: "Today"
-  }
-];
-
+const rooms = [{
+  id: 1,
+  name: "Innovation Hub",
+  capacity: 15,
+  floor: "9th Floor",
+  available: true,
+  position: "top-left",
+  features: ["Projector", "Video Conference"]
+}, {
+  id: 2,
+  name: "Collaboration Space",
+  capacity: 10,
+  floor: "9th Floor",
+  available: true,
+  position: "top-right",
+  features: ["Whiteboard", "TV Display"]
+}, {
+  id: 3,
+  name: "Focus Room",
+  capacity: 6,
+  floor: "9th Floor",
+  available: false,
+  position: "bottom-left",
+  features: ["Video Conference"]
+}, {
+  id: 4,
+  name: "Executive Suite",
+  capacity: 20,
+  floor: "9th Floor",
+  available: true,
+  position: "bottom-right",
+  features: ["Projector", "Video Conference", "Whiteboard"]
+}];
+const upcomingBookings = [{
+  id: 1,
+  time: "10:00 - 11:30",
+  title: "Product Strategy Meeting",
+  room: "Innovation Hub",
+  date: "Today"
+}, {
+  id: 2,
+  time: "14:00 - 15:00",
+  title: "Team Standup",
+  room: "Collaboration Space",
+  date: "Today"
+}];
 const mockCurrentMeeting = {
   id: 1,
   title: "Product Strategy Meeting",
@@ -47,34 +67,36 @@ const mockCurrentMeeting = {
   attendees: 8,
   platform: 'zoom' as const
 };
-
-const mockUpcomingMeetings = [
-  {
-    id: 2,
-    title: "Team Standup",
-    time: "14:00 - 15:00",
-    duration: "1h",
-    attendees: 5
-  },
-  {
-    id: 3,
-    title: "Client Presentation",
-    time: "16:00 - 17:00",
-    duration: "1h",
-    attendees: 12,
-    platform: 'teams' as const
-  }
-];
-
+const mockUpcomingMeetings = [{
+  id: 2,
+  title: "Team Standup",
+  time: "14:00 - 15:00",
+  duration: "1h",
+  attendees: 5
+}, {
+  id: 3,
+  title: "Client Presentation",
+  time: "16:00 - 17:00",
+  duration: "1h",
+  attendees: 12,
+  platform: 'teams' as const
+}];
 const RoomBookingContent = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedRoom, setSelectedRoom] = useState<number | null>(null);
   const [viewMode, setViewMode] = useState<'dashboard' | 'display'>('dashboard');
   const [filteredRooms, setFilteredRooms] = useState(rooms);
-  
-  const { speak, isEnabled: ttsEnabled, toggleTTS } = useTTS();
-  const { isGestureEnabled, toggleGesture, gestureData, isActive } = useGestureControlContext();
-
+  const {
+    speak,
+    isEnabled: ttsEnabled,
+    toggleTTS
+  } = useTTS();
+  const {
+    isGestureEnabled,
+    toggleGesture,
+    gestureData,
+    isActive
+  } = useGestureControlContext();
   const handleRoomSelect = (roomId: number) => {
     setSelectedRoom(roomId);
     const room = rooms.find(r => r.id === roomId);
@@ -82,57 +104,33 @@ const RoomBookingContent = () => {
       speak(`Selected ${room.name}, capacity ${room.capacity} people`);
     }
   };
-
   const handleSearch = (query: string, filters: any) => {
     let filtered = rooms;
-    
     if (query) {
-      filtered = filtered.filter(room => 
-        room.name.toLowerCase().includes(query.toLowerCase()) ||
-        room.floor.toLowerCase().includes(query.toLowerCase()) ||
-        room.features.some(feature => feature.toLowerCase().includes(query.toLowerCase()))
-      );
+      filtered = filtered.filter(room => room.name.toLowerCase().includes(query.toLowerCase()) || room.floor.toLowerCase().includes(query.toLowerCase()) || room.features.some(feature => feature.toLowerCase().includes(query.toLowerCase())));
     }
-    
     if (filters.capacity) {
       filtered = filtered.filter(room => room.capacity >= filters.capacity);
     }
-    
     if (filters.location) {
       filtered = filtered.filter(room => room.floor === filters.location);
     }
-    
     if (filters.availability === 'available') {
       filtered = filtered.filter(room => room.available);
     }
-    
     if (filters.features.length > 0) {
-      filtered = filtered.filter(room => 
-        filters.features.some((feature: string) => room.features.includes(feature))
-      );
+      filtered = filtered.filter(room => filters.features.some((feature: string) => room.features.includes(feature)));
     }
-    
     setFilteredRooms(filtered);
     speak(`Found ${filtered.length} matching rooms`);
   };
-
   if (viewMode === 'display' && selectedRoom) {
     const room = rooms.find(r => r.id === selectedRoom);
     if (room) {
-      return (
-        <RoomDisplayPanel
-          roomName={room.name}
-          isOccupied={!room.available}
-          capacity={room.capacity}
-          currentMeeting={!room.available ? mockCurrentMeeting : undefined}
-          upcomingMeetings={mockUpcomingMeetings}
-        />
-      );
+      return <RoomDisplayPanel roomName={room.name} isOccupied={!room.available} capacity={room.capacity} currentMeeting={!room.available ? mockCurrentMeeting : undefined} upcomingMeetings={mockUpcomingMeetings} />;
     }
   }
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <Header />
       
       <div className="container py-8">
@@ -149,52 +147,33 @@ const RoomBookingContent = () => {
               <p className="text-muted-foreground">UNDP Meeting Room Management</p>
             </div>
             <div className="flex gap-2">
-              <Button 
-                variant={ttsEnabled ? "default" : "outline"}
-                size="sm"
-                onClick={toggleTTS}
-              >
+              <Button variant={ttsEnabled ? "default" : "outline"} size="sm" onClick={toggleTTS}>
                 <Volume2 className="h-4 w-4 mr-1" />
                 TTS {ttsEnabled ? 'On' : 'Off'}
               </Button>
-              <Button 
-                variant={isGestureEnabled ? "default" : "outline"}
-                size="sm"
-                onClick={toggleGesture}
-              >
+              <Button variant={isGestureEnabled ? "default" : "outline"} size="sm" onClick={toggleGesture}>
                 <Hand className="h-4 w-4 mr-1" />
                 Gesture {isGestureEnabled ? 'On' : 'Off'}
               </Button>
-              <Button 
-                variant="outline"
-                size="sm"
-                onClick={() => setViewMode(viewMode === 'dashboard' ? 'display' : 'dashboard')}
-              >
-                <Settings className="h-4 w-4 mr-1" />
-                {viewMode === 'dashboard' ? 'Display Mode' : 'Dashboard'}
-              </Button>
-              <Button variant="outline">SSO Login</Button>
+              
+              
             </div>
           </div>
 
           {/* Gesture Status Indicator */}
-          {isGestureEnabled && (
-            <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+          {isGestureEnabled && <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-blue-700">
                   Gesture Control Active {isActive ? '(Detecting)' : ''}
                 </span>
-                {gestureData && (
-                  <Badge variant="outline" className="text-blue-700">
+                {gestureData && <Badge variant="outline" className="text-blue-700">
                     {gestureData}
-                  </Badge>
-                )}
+                  </Badge>}
               </div>
               <p className="text-xs text-blue-600 mt-1">
                 Swipe up: Navigate • Swipe left/right: Change menu • Swipe down: Go back
               </p>
-            </div>
-          )}
+            </div>}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -257,18 +236,13 @@ const RoomBookingContent = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 const RoomBookingSystem = () => {
-  return (
-    <TTSProvider>
+  return <TTSProvider>
       <GestureControlProvider>
         <RoomBookingContent />
       </GestureControlProvider>
-    </TTSProvider>
-  );
+    </TTSProvider>;
 };
-
 export default RoomBookingSystem;
