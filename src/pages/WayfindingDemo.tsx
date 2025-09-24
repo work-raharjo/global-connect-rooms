@@ -247,15 +247,15 @@ const WayfindingDemo = () => {
                 {/* Interactive Mappedin Wayfinding */}
                 <div className="relative rounded-lg border bg-card overflow-hidden">
                   <iframe 
-                    src="https://app.mappedin.com/map/68d24cee0bc9b1000b90f92f?embedded=true"
-                    title="Interactive Wayfinding Map" 
-                    name="Mappedin Map" 
+                    title="Mappedin Map" 
+                    name="Mappedin Map"
                     allow="clipboard-write 'self' https://app.mappedin.com; web-share 'self' https://app.mappedin.com" 
                     scrolling="no" 
                     width="100%" 
                     height="650" 
                     frameBorder="0" 
                     style={{ border: 0 }}
+                    src="https://app.mappedin.com/map/68d395df4d3a29000b77a50b?embedded=true"
                     className="w-full"
                   />
                 </div>
