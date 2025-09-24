@@ -10,17 +10,18 @@ interface BookingCalendarProps {
 }
 
 export const BookingCalendar: React.FC<BookingCalendarProps> = ({ selectedDate, onDateSelect }) => {
-  const currentMonth = "June 2025";
   const currentDate = new Date();
+  const currentMonth = currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   const today = currentDate.getDate();
+  const selectedDay = selectedDate.getDate();
   
-  // Generate calendar days for June 2025
-  const daysInMonth = 30;
-  const startDay = 0; // June 1, 2025 starts on Sunday
+  // Generate calendar days for current month
+  const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
+  const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
   const days = [];
   
   // Add empty cells for days before the month starts
-  for (let i = 0; i < startDay; i++) {
+  for (let i = 0; i < firstDayOfMonth; i++) {
     days.push(null);
   }
   
@@ -29,7 +30,7 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ selectedDate, 
     days.push(day);
   }
 
-  const weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Sa'];
+  const weekDays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
   return (
     <Card>
@@ -57,11 +58,11 @@ export const BookingCalendar: React.FC<BookingCalendarProps> = ({ selectedDate, 
             <div key={index} className="aspect-square">
               {day && (
                 <Button
-                  variant={day === 20 ? "default" : "ghost"}
+                  variant={day === selectedDay ? "default" : "ghost"}
                   size="sm"
-                  className={`w-full h-full ${day === 20 ? 'bg-blue-500 text-white' : ''}`}
+                  className={`w-full h-full ${day === today ? 'ring-2 ring-primary' : ''} ${day === selectedDay ? 'bg-primary text-primary-foreground' : ''}`}
                   onClick={() => {
-                    const newDate = new Date(2025, 5, day); // June is month 5
+                    const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
                     onDateSelect(newDate);
                   }}
                 >
