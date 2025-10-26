@@ -144,7 +144,7 @@ const RoomBookingContent = () => {
           <div className="flex justify-between items-center mb-4">
             <div>
               <h1 className="text-3xl font-bold mb-2">Smart Room Booking System</h1>
-              <p className="text-muted-foreground">UNDP Meeting Room Management</p>
+              <p className="text-muted-foreground">Meeting Room Management</p>
             </div>
             <div className="flex gap-2">
               <Button variant={ttsEnabled ? "default" : "outline"} size="sm" onClick={toggleTTS}>
@@ -188,7 +188,7 @@ const RoomBookingContent = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <MapPin className="h-5 w-5 text-muted-foreground" />
-                    <span className="text-lg">UNDP Headquarters - 9th Floor</span>
+                    <span className="text-lg">Main Building - 9th Floor</span>
                   </div>
                   <Badge variant="outline">4 Rooms Available</Badge>
                 </div>
